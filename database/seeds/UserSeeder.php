@@ -21,12 +21,14 @@ class UserSeeder extends Seeder {
         $human = User::create([
             'name' => 'Human',
             'email' => 'human@nowhere.com',
+            'phone' => '123',
             'password' => bcrypt('abcdefg')
         ]);
 
         $bird = User::create([
             'name' => 'Bird',
             'email' => 'bird@nowhere.com',
+            'phone' => '456',
             'password' => bcrypt('abcdefg')
         ]);
     }
