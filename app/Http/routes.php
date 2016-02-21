@@ -1,16 +1,8 @@
 <?php
 
-//Auth
-require app_path('Http/Routes/auth.php');
-
 //Test routes
 require app_path('Http/Routes/tests.php');
 
-//Home page
-Route::get('/', function()
-{
-    return view('welcome');
-});
 
 // API
 Route::group(['namespace' => 'API', 'prefix' => 'api'], function () {
@@ -29,8 +21,9 @@ Route::group(['namespace' => 'API', 'prefix' => 'api'], function () {
 |
 */
 
-//Route::group(['middleware' => ['web']], function () {
-    //
-//});
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
 
-
+    Route::get('/', 'HomeController@index');
+    Route::get('/home', 'HomeController@index');
+});
