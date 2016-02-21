@@ -1,19 +1,22 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+//Auth
+require app_path('Http/Routes/auth.php');
 
-Route::get('/', function () {
+//Test routes
+require app_path('Http/Routes/tests.php');
+
+//Home page
+Route::get('/', function()
+{
     return view('welcome');
 });
+
+// API
+Route::group(['namespace' => 'API', 'prefix' => 'api'], function () {
+//    Route::resource('calories', 'Calories\CaloriesController', ['only' => 'show']);
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +29,8 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+//Route::group(['middleware' => ['web']], function () {
     //
-});
+//});
+
+
